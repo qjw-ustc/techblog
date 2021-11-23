@@ -60,6 +60,11 @@ prism_plugin:
   theme: 'tomorrow'
   line_number: true
 
+# Search
+search:
+  path: search.xml
+  field: post
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
