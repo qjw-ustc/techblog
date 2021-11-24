@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, G5.Qin的技术随笔">
+    <meta name="keywords" content="Hexo博客搭建和Github部署, G5.Qin的技术随笔">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | G5.Qin的技术随笔</title>
+    <title>Hexo博客搭建和Github部署 | G5.Qin的技术随笔</title>
     <link rel="icon" type="image/png" href="/techblog.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/techblog.github.io/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/techblog.github.io/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/techblog.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Hexo博客搭建和Github部署</h1>
                 </div>
             </div>
         </div>
@@ -385,12 +385,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/techblog.github.io/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/techblog.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
+                                博客搭建
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -399,7 +412,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-22
+                    2021-11-24
                 </div>
                 
 
@@ -420,19 +433,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-python"><code class="language-python">$ hexo new <span class="token string">"My New Post"</span>
+                <p>Hexo是一款开源的非常方便好用的博客框架, 与Github Pages结合可以实现完全免费的博客建站, 本文记录我的博客的搭建流程, 供大家参考.</p>
+<blockquote>
+<p>我是在Ubuntu18.04 LTS Desktop环境进行的搭建, 本文命令示例也以此系统为基础介绍.</p>
+</blockquote>
+<h2 id="本地环境安装"><a href="#本地环境安装" class="headerlink" title="本地环境安装"></a>本地环境安装</h2><h3 id="安装Git和Nodejs"><a href="#安装Git和Nodejs" class="headerlink" title="安装Git和Nodejs"></a>安装Git和Nodejs</h3><ol>
+<li>安装Git</li>
+</ol>
+<p>由于博客项目有在多终端上编辑的需求, 本身部署到GitPages上也有需求, 所以需要先安装Git.<br>Ubuntu安装:</p>
+<pre class=" language-shell"><code class="language-shell">sudo apt install git-all
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<p>检查是否安装成功:</p>
+<pre class=" language-shell"><code class="language-shell">git --version
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<p>其他平台如Mac可以通过XCode Command Line Tools安装, Windows平台下可以下载可执行文件进行安装. 参考官方<a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git安装文档</a></p>
+<ol start="2">
+<li>安装Nodejs</li>
+</ol>
+<p>比较熟悉的小伙伴可以用nvm或n来进行node的安装, 本文只介绍最基础的安装方式. (建议安装13及以上版本, 我的版本是v16.13.0)<br>从NodeSource安装:</p>
+<pre class=" language-shell"><code class="language-shell"># 将NodeSource签名添加到系统, 如果需要其他版本可以改成 setup_&#123;需要的版本号&#125;
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+# apt安装
+sudo apt install nodejs
+
+# 检查版本确认安装成功
+node --version
+
+# 同时查看npm版本
+npm --version
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+<h3 id="安装Hexo客户端"><a href="#安装Hexo客户端" class="headerlink" title="安装Hexo客户端"></a>安装Hexo客户端</h3><p>接下来安装hexo命令行客户端, 一行命令搞定</p>
+<pre class=" language-shell"><code class="language-shell">sudo npm install -g hexo-cli
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>安装后可以通过查看版本号确认安装是否成功</p>
+<pre class=" language-shell"><code class="language-shell">hexo -v
+</code></pre>
+<p>我的安装版本是 hexo: 5.4.0, hexo-cli: 4.3.0</p>
+<h3 id="新建博客目录"><a href="#新建博客目录" class="headerlink" title="新建博客目录"></a>新建博客目录</h3><ul>
+<li>首先新建博客代码存放的目录, 例如我的是<code>/home/qjw/workspace/blog</code></li>
+<li>进入该目录</li>
+<li>执行初始化命令<pre class=" language-shell"><code class="language-shell">hexo init
+</code></pre>
+</li>
+<li>npm安装依赖<pre class=" language-shell"><code class="language-shell">npm install
+</code></pre>
+</li>
+</ul>
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>上述安装完成后, 便可以通过hexo的一键生成命令生成并预览自己的博客页面</p>
+<pre class=" language-shell"><code class="language-shell"># 清理命令 clean, 首次可以不执行
+hexo c
+
+# 生成命令 generate
+hexo g
+
+# 运行命令 serve
+hexo s
+</code></pre>
+<p>执行后, 博客会在本地的<code>http://localhost:4000</code>地址运行, 就可以本地访问博客内容了!</p>
+<h2 id="GitHub配置"><a href="#GitHub配置" class="headerlink" title="GitHub配置"></a>GitHub配置</h2><p>我们的博客本地能正常运行且显示以后, 下一步就是想办法发布出去给更多的小伙伴看了, 接下来介绍使用GitPages部署的步骤.</p>
+<h3 id="新建项目和GitPages配置"><a href="#新建项目和GitPages配置" class="headerlink" title="新建项目和GitPages配置"></a>新建项目和GitPages配置</h3><ol>
+<li>首先登录你的GitHub, 在repository中新建一个项目, 项目名称中必须包含<code>.github.io</code></li>
+</ol>
+<p><img src="/techblog.github.io/techblog.github/20211124_github_screenshot_1.png" alt="我的项目名称"></p>
+<ol start="2">
+<li>点击项目的<code>Settings</code>, 并选择<code>Pages</code>选项, 选择一个主题, 按步骤操作后会有如下提示:</li>
+</ol>
+<p><img src="/techblog.github.io/techblog.github/20211124_github_screenshot_2.png" alt="Pages地址"></p>
+<p>这说明项目已作为GitPages发布到了这个地址</p>
+<h3 id="ssh密钥配置"><a href="#ssh密钥配置" class="headerlink" title="ssh密钥配置"></a>ssh密钥配置</h3><p>接下来我们回到本地</p>
+<ol>
+<li><p>首先配置git的用户信息</p>
+<pre class=" language-shell"><code class="language-shell">git config --global user.name "qjw_ustc"
+git config --global user.email "qjw_ustc@163.com"
+</code></pre>
+</li>
+<li><p>首先在本地生成一对ssh密钥</p>
+<pre class=" language-shell"><code class="language-shell">ssh-keygen -t rsa -C "qjw_ustc@163.com"
+</code></pre>
+</li>
+<li><p>其中公钥被保存在 <code>~/.ssh/id_rsa.pub</code>, 打开它</p>
+<pre class=" language-shell"><code class="language-shell">cat ~/.ssh/id_rsa.pub
+</code></pre>
+</li>
+<li><p>回到<code>GitHub</code>的个人账号页面, 打开个人设置<code>Settings</code>, 选择<code>SSH and GPG keys</code>, 新建一个SSH, 名称任取.</p>
+</li>
+<li><p>我们把公钥拷贝并粘贴在新建的SSH里面, 保存.</p>
+</li>
+<li><p>回到本地, 对本地Git添加这个密钥</p>
+</li>
+</ol>
+<pre class=" language-shell"><code class="language-shell">ssh -T git@github.com
+</code></pre>
+<p>如果提示 <code>Hi 你的GitHub用户名! ...</code>, 就说明配置成功了!</p>
+<h2 id="尝试发布"><a href="#尝试发布" class="headerlink" title="尝试发布"></a>尝试发布</h2><p>接下来我们将本地的博客发布到已经配置好的<code>GitPages</code>上</p>
+<ol>
+<li><p>在本地项目路径下, 安装一个用于Git发布的插件</p>
+<pre class=" language-shell"><code class="language-shell">npm install hexo-deployer-git
+</code></pre>
+</li>
+<li><p>编辑博客根目录下的<code>_config.yaml</code>配置文件, 将<code>deploy</code>这个section改成这样:</p>
+</li>
+</ol>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> git
+  <span class="token key atrule">repo</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span>qjw<span class="token punctuation">-</span>ustc/techblog.github.io
+  <span class="token key atrule">branch</span><span class="token punctuation">:</span> main
+</code></pre>
+<blockquote>
+<p>这里一定要注意, 项目地址不能用 <code>https://</code> 开头的地址, 必须用<strong><a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#109;</a></strong>, 否则无法用到配置的ssh密钥信息.</p>
+</blockquote>
+<ol start="3">
+<li>保存后, 使用hexo提供的一键部署命令发布博客到远端地址</li>
+</ol>
+<pre class=" language-shell"><code class="language-shell"># 生成命令 generate
+hexo g
+
+# 部署命令 deploy
+hexo d
+</code></pre>
+<p>然后再去刷新自己的<code>GitPages</code>地址, 就能看到博客页面啦!</p>
+<blockquote>
+<p>如果还不能正常看到页面, 可以检查下<code>Pages</code>里面配置的分支是否与本地配置的远端分支一致, 如果不一致需要修改成一致的.</p>
+</blockquote>
+<h2 id="代码同步"><a href="#代码同步" class="headerlink" title="代码同步"></a>代码同步</h2><p>针对我们在多台电脑上编辑博客的需求, 我们需要把博客代码也一起同步一下</p>
+<p><strong>Tips:</strong> 我们发布后此时在<code>GitHub</code>上看到的代码, 不是我们本地编辑时的代码, 而是由<code>Hexo</code>在部署前编译后的内容, 所以代码本身不能和这个混淆.</p>
+<p>因此我们新开一个分支, 例如我的就是<code>hexo</code>分支, 并一套<code>add + commit + push</code>操作就可以啦!</p>
+<pre class=" language-shell"><code class="language-shell">git branch -b hexo
+git add .
+git commit -m "first commit"
+git push origin hexo
+</code></pre>
+<p>接下来我会在后续文章中记录一些其他的美化和配置!</p>
 
                 
             </div>
@@ -459,7 +591,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qjw-ustc.github.io/techblog.github.io/techblog.github.io/2021/11/22/hello-world/">https://qjw-ustc.github.io/techblog.github.io/techblog.github.io/2021/11/22/hello-world/</a>
+                    <a href="https://qjw-ustc.github.io/techblog.github.io/techblog.github.io/2021/11/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8CGithub%E9%83%A8%E7%BD%B2/">https://qjw-ustc.github.io/techblog.github.io/techblog.github.io/2021/11/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8CGithub%E9%83%A8%E7%BD%B2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -496,7 +628,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/techblog.github.io/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -664,9 +800,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/techblog.github.io/2021/11/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8CGithub%E9%83%A8%E7%BD%B2/">
                     <div class="card-image">
@@ -684,9 +821,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -699,6 +836,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -714,7 +852,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/techblog.github.io/2021/11/22/hello-world/">
@@ -744,7 +882,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
