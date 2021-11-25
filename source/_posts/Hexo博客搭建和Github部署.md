@@ -99,11 +99,11 @@ hexo s
 
 1. 首先登录你的GitHub, 在repository中新建一个项目, 项目名称中必须包含```.github.io```
 
-![我的项目名称](./Hexo博客搭建和Github部署/20211124_github_screenshot_1.png)
+![我的项目名称](20211124_github_screenshot_1.png)
 
 2. 点击项目的```Settings```, 并选择```Pages```选项, 选择一个主题, 按步骤操作后会有如下提示:
 
-![Pages地址](./Hexo博客搭建和Github部署/20211124_github_screenshot_2.png)
+![Pages地址](20211124_github_screenshot_2.png)
 
 这说明项目已作为GitPages发布到了这个地址
 
